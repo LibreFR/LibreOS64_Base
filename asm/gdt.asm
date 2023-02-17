@@ -30,10 +30,19 @@ gdt_descriptor:
 codeseg equ gdt_codedesc - gdt_nulldesc
 dataseg equ gdt_datadesc - gdt_nulldesc
 
-EditGDT:
-    mov byte [codeseg + 5], 0xAF
-    mov byte [dataseg + 5], 0xAF
+EditGDT:    
+    mov eax, gdt_nulldesc
+    mov bx, codeseg
+    sub bx, ax
+    mov byte [bx + 5], 0xAF
+
+    mov bx, dataseg
+    sub bx, ax
+    mov byte [bx + 5], 0xAF
 
     ret
 
 [BITS 16]
+
+codeseg equ gdt_codedesc - gdt_nulldesc
+dataseg equ gdt_datadesc - gdt_nulldesc
