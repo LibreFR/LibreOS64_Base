@@ -1,7 +1,7 @@
 NOMSE="LibreOS64"
 
 if ! test -f "SE.flp"; then
-    echo "SE.flp n'existe pas ; Veuillez d'abord compiler votre SE via ./run.sh"
+    echo "SE.flp n'existe pas ; Veuillez d'abord compiler votre SE via ./lancer.sh"
 fi
 
 if test -f "SE.img"; then
